@@ -4,7 +4,8 @@ enum projectType {
   TS_BASIC = 'pine-basic-ts',
   TS_EXAMPLE = 'pine-example-ts',
   JS_BASIC = 'pine-basic-js',
-  JS_EXAMPLE = 'pine-example-js'
+  JS_EXAMPLE = 'pine-example-js',
+  JS_MOBILE_EXAMPLE = 'pine-mobile-example-js'
 }
 
 export async function getProjectType() {
@@ -17,7 +18,8 @@ export async function getProjectType() {
         projectType.TS_BASIC,
         projectType.TS_EXAMPLE,
         projectType.JS_BASIC,
-        projectType.JS_EXAMPLE
+        projectType.JS_EXAMPLE,
+        projectType.JS_MOBILE_EXAMPLE
       ]
     }
   ])

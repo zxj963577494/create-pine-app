@@ -5,9 +5,8 @@ import { filesToCheck } from './config'
 export function checkAppDir(root: string, appName: string) {
   const appDirFiles = fs.readdirSync(root)
   const conflictFiles = appDirFiles.reduce(
-    (result: string[], cur) =>
-      filesToCheck.includes(cur) ? [...result, cur] : result,
-    [],
+    (result: string[], cur) => (filesToCheck.includes(cur) ? [...result, cur] : result),
+    []
   )
 
   // new project fail due to conflict
@@ -18,7 +17,7 @@ export function checkAppDir(root: string, appName: string) {
 }
 
 function getConflictMsg(projectName: string, existFiles: string[]) {
-  const filesStr = existFiles.map(i => `  ${i}`).join('\n')
+  const filesStr = existFiles.map((i) => `  ${i}`).join('\n')
   return `
 The directory ${chalk.green(projectName)} contains files that could conflict:
 

@@ -8,16 +8,16 @@ export function git(root: string) {
   const child = spawn(command, args, { stdio: 'inherit' })
 
   return new Promise((resolve, reject) => {
-    child.on('close', code => {
+    child.on('close', (code) => {
       if (code !== 0) {
         reject({
-          command: `${command} ${args.join(' ')}`
+          command: `${command} ${args.join(' ')}`,
         })
         return
       }
 
       process.chdir(path.resolve(root, '..'))
-      resolve()
+      resolve(true)
     })
   })
 }

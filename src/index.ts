@@ -20,7 +20,7 @@ class CreatePineApp extends Command {
   static flags = {
     // add --version flag to show CLI version
     version: flags.version({ char: 'v' }),
-    help: flags.help({ char: 'h' })
+    help: flags.help({ char: 'h' }),
   }
 
   static args = [{ name: 'appName' }]
@@ -29,20 +29,16 @@ class CreatePineApp extends Command {
     const { args } = this.parse(CreatePineApp)
     const appName: string = args.appName
     if (!appName) {
-      return this.log(
-        yellow('required project name, eg: '),
-        green('create-pine-app myapp')
-      )
+      return this.log(yellow('required project name, eg: '), green('create-pine-app myapp'))
     }
 
     const root = path.resolve(appName)
-
-    console.log(yosay('您正在初始化 pine 项目...'))
 
     try {
       const projectType = await getProjectType()
       createAppDir(root)
       checkAppDir(root, appName)
+      console.log(yosay('您正在初始化 pine 项目...'))
       await createApp(root, projectType)
       setAppName(root, appName)
       await git(root)

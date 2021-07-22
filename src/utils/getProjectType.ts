@@ -2,10 +2,9 @@ import inquirer from 'inquirer'
 
 enum projectType {
   TS_BASIC = 'pine-basic-ts',
-  TS_EXAMPLE = 'pine-example-ts',
   JS_BASIC = 'pine-basic-js',
-  JS_EXAMPLE = 'pine-example-js',
   JS_MOBILE_EXAMPLE = 'pine-mobile-example-js',
+  REACT_VITE_WEBAPCK_BOILERPLATE = 'react-vite-webapck-boilerplate',
 }
 
 export async function getProjectType() {
@@ -16,10 +15,9 @@ export async function getProjectType() {
       message: '选择项目模板？',
       choices: [
         projectType.TS_BASIC,
-        projectType.TS_EXAMPLE,
         projectType.JS_BASIC,
-        projectType.JS_EXAMPLE,
         projectType.JS_MOBILE_EXAMPLE,
+        projectType.REACT_VITE_WEBAPCK_BOILERPLATE,
       ],
     },
   ])
